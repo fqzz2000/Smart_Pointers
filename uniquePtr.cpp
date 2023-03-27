@@ -26,6 +26,16 @@ public:
     }
     // assignment operator
 
+    // overload dereference
+    T &operator*() const
+    {
+        return *_ptr;
+    }
+    T *operator->() const
+    {
+        return _ptr;
+    }
+
 private:
     UniquePtr &operator=(const UniquePtr &rhs);
     UniquePtr(const UniquePtr &rhs);

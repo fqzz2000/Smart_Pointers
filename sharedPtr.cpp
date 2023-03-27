@@ -49,6 +49,15 @@ public:
             std::cout << "count--" << std::endl;
         }
     }
+    // overload dereference
+    T &operator*() const
+    {
+        return *_ptr;
+    }
+    T *operator->() const
+    {
+        return _ptr;
+    }
 
 private:
     int *_count;
