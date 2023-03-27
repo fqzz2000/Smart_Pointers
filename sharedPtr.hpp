@@ -1,4 +1,7 @@
+#ifndef SHARED_PTR_HPP
+#define SHARED_PTR_HPP
 #include <iostream>
+#include <weakPtr.hpp>
 template <typename T>
 class SharedPtr
 {
@@ -62,6 +65,7 @@ public:
 private:
     int *_count;
     T *_ptr;
+    friend class WeakPtr;
 };
 
 int main(int argc, char **argv)
@@ -75,3 +79,5 @@ int main(int argc, char **argv)
 
     return 0;
 }
+
+#endif

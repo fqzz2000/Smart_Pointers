@@ -1,10 +1,12 @@
+#ifndef WEAK_PTR_HPP
+#define WEAK_PTR_HPP
 #include <iostream>
-
+#include <sharedPtr.hpp>
 template <typename T>
 class WeakPtr
 {
 public:
-    WeakPtr(SharedPtr<T> &ptr) : _ptr(ptr) {}
+    WeakPtr(SharedPtr<T> &ptr) : _ptr(rhs._ptr) {}
     ~WeakPtr() {}
     WeakPtr(const WeakPtr &rhs) : _ptr(rhs._ptr) {}
     WeakPtr &operator=(const WeakPtr &rhs)
@@ -19,7 +21,9 @@ public:
 
 private:
     WeakPtr();
+    friend class SharedPtr;
 
 private:
-    SharedPtr<T> _ptr;
+    T *_ptr;
 };
+#endif
