@@ -18,6 +18,16 @@ public:
         return *this;
     }
     WeakPtr(WeakPtr &&rhs) : _ptr(std::move(rhs._ptr)) {}
+    // dereference
+    T &operator*()
+    {
+        return *_ptr;
+    }
+
+    T *operator->()
+    {
+        return _ptr;
+    }
 
 private:
     WeakPtr();
